@@ -10,6 +10,8 @@
 
 #### Chapter 2
 
+* add my first program hello world
+
 ### Chapter 3
 
 ## Chapter 4
