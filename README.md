@@ -17,6 +17,7 @@
 ### Chapter 3
 
 * add chapter3-1 zero value
+* add chapter3-2 string
 
 ## Chapter 4
 
