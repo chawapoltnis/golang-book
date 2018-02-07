@@ -12,6 +12,8 @@
 
 * add my first program hello world
 
+* add folder chapter2-2
+
 ### Chapter 3
 
 ## Chapter 4
