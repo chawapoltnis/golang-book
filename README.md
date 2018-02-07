@@ -18,6 +18,7 @@
 
 * add chapter3-1 zero value
 * add chapter3-2 string
+* add chapter3-3 floating point
 
 ## Chapter 4
 
