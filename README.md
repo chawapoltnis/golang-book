@@ -22,4 +22,7 @@
 
 ## Chapter 4
 
+* add chapter4-1 how to declare variable
+* add chapter4-2 how to write simple interactive program
+
 # Chapter 5
