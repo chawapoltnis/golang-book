@@ -23,6 +23,7 @@
 ## Chapter 4
 
 * add chapter4-1 how to declare variable
-* add chapter4-2 how to write simple interactive program
+* add chapter4-2 how to write simple interactive program farenheit
+* add chapter4-3 program convert from feet into meters
 
 # Chapter 5
