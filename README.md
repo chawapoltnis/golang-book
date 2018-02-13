@@ -27,3 +27,7 @@
 * add chapter4-3 program convert from feet into meters
 
 # Chapter 5
+
+* add chapter5-1 learn for loop
+* add chapter5-2 learn switch
+* add chapter5-4 practice guess number 5 times
