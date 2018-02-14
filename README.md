@@ -38,3 +38,17 @@
 * add chapter6-3 function multiple value return
 * add chapter6-4 function use array
 * add chapter6-5 function fizzbuzz
+
+# Chapter 7
+
+* add chapter7-1 declare array
+* add chapter7-2 declare slice
+* add chapter7-3 assign slice from array
+* add chapter7-4 copy slice
+* add chapter7-5 map
+* add chapter7-6 map delete
+* add chapter7-7 map check index have value
+* add chapter7-8 range array
+* add chapter7-9 range slice
+* add chapter7-10 range map
+* add chapter7-11 range string
