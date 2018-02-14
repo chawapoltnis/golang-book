@@ -31,3 +31,10 @@
 * add chapter5-1 learn for loop
 * add chapter5-2 learn switch
 * add chapter5-4 practice guess number 5 times
+
+# Chapter 6
+
+* add chapter6-1 function
+* add chapter6-3 function multiple value return
+* add chapter6-4 function use array
+* add chapter6-5 function fizzbuzz
