@@ -9,7 +9,7 @@ import (
 func main() {
 
 	rand.Seed(time.Now().UTC().UnixNano())
-	randomnumber := rand.Intn(200)
+	randomnumber := rand.Intn(10)
 
 	var input int
 	for count := 1; count <= 5; count++ {

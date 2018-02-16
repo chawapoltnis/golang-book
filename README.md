@@ -52,3 +52,7 @@
 * add chapter7-9 range slice
 * add chapter7-10 range map
 * add chapter7-11 range string
+
+# exercise
+
+* add exercise show terminal
