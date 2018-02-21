@@ -56,3 +56,24 @@
 # exercise
 
 * add exercise show terminal
+
+# Chapter 8
+
+* add chapter8-1 pointer - pass by copy value & pass by reference
+* add chapter8-3 pointer - array pass by value & reference
+* add chapter8-5 pointer - slice (alway pass by reference)
+* add chapter8-6 pointer - map (alway pass by refenrence because don't know how it's length)
+
+# Chapter 9
+* add chapter9-1 struct type
+* add chapter9-2 specific type
+
+
+# Chapter 10
+* add chapter10-1 method (if use method, complier will change pass by value,reference automatically)
+
+# Chapter 11
+* add chapter11-1 interface (interface not change pass by value,reference automatically)
+
+# exercise2
+* refactor function fizzbuzz from 6-5
