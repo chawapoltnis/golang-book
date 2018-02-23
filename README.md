@@ -77,3 +77,6 @@
 
 # exercise2
 * refactor function fizzbuzz from 6-5
+
+# exercise3
+* add vending machine
