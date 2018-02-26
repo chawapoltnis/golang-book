@@ -39,13 +39,17 @@ func (m *VendingMachine) change(c int) string{
 		if c>=values[i] {
 			str+=", "+coins[i]
 			c-=values[i]
+			m.insertedMoney-=values[i]
+			i--
 		}		
 	}
 	return str
 }
 
 func (m *VendingMachine) CoinReturn() string {
-	return "T, T, F"
+	coins := m.change(m.insertedMoney)
+	m.insertedMoney=0
+	return coins[2:len(coins)]
 }
 
 func main() {
