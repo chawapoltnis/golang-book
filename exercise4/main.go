@@ -5,15 +5,15 @@ import (
 )
 
 type VendingMachine struct {
-
+	insertedMoney int
 }
 
 func (m VendingMachine) InsertedMoney() int {
-	return 10
+	return m.insertedMoney
 }
 
 func (m *VendingMachine) InserCoin(coin string) {
-
+	m.insertedMoney=10
 }
 
 func main() {
