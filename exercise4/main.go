@@ -7,6 +7,7 @@ import (
 type VendingMachine struct {
 	insertedMoney int
 	coins map[string]int
+	items map[string]int
 }
 
 func (m VendingMachine) InsertedMoney() int {
@@ -18,15 +19,15 @@ func (m *VendingMachine) InserCoin(coin string) {
 }
 
 func (m *VendingMachine) SelectSD() string {
-	price:=18
-	change:=m.insertedMoney-price
-	return "SD" + m.change(change)
+	price:=m.items["SD"]
+	m.insertedMoney-=price
+	return "SD" + m.change(m.insertedMoney)
 }
 
 func (m *VendingMachine) SelectCC() string {
-	price:=12
-	change:=m.insertedMoney-price
-	return "CC" + m.change(change)
+	price:=m.items["CC"]
+	m.insertedMoney-=price
+	return "CC" + m.change(m.insertedMoney)
 }
 
 func (m *VendingMachine) change(c int) string{
@@ -38,7 +39,8 @@ func (m *VendingMachine) change(c int) string{
 
 func main() {
 	var coins = map[string]int{"T":10,"F":5,"TW":2,"O":1}
-	vm := VendingMachine{coins:coins}
+	var items = map[string]int{"SD":18,"CC":12}
+	vm := VendingMachine{coins:coins,items:items}
 	fmt.Println("Inserted Money:",vm.InsertedMoney()) //Inserted Money: 0
 	vm.InserCoin("T")
 	vm.InserCoin("F")
