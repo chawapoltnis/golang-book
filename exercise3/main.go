@@ -32,8 +32,8 @@ func main() {
 	vm.InsertCoin("T")
 	vm.InsertCoin("F")
 	fmt.Println("Inserted Money", vm.GetInsertedMoney())
-	//change := vm.CoinReturn()
-	//fmt.Println(change)
+	change := vm.CoinReturn()
+	fmt.Println(change)
 }
 
 func NewVendingMachine() VendingMachine{
@@ -82,10 +82,10 @@ func (V *VendingMachine)selectCC() string{
 
 func (V *VendingMachine)CoinReturn() string{
 	var str string
-	P :=[5]int{10,5,2,1}
-	T :=[5]string{"T","F","TW","O"}
+	P :=[4]int{10,5,2,1}
+	T :=[4]string{"T","F","TW","O"}
 	for i:=0;i<len(P);i++ {
-		if V.TotalCoins/P[i]>1{
+		if V.TotalCoins/P[i]>=1{
 			n:=V.TotalCoins/P[i]
 			for j:=0;j<n;j++ {
 				str+=T[i]+" "

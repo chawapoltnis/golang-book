@@ -80,3 +80,6 @@
 
 # exercise3
 * add vending machine
+
+# exercise4
+* add vending machine workthrough with coach
