@@ -18,13 +18,22 @@ func (m *VendingMachine) InserCoin(coin string) {
 }
 
 func (m *VendingMachine) SelectSD() string {
-	m.insertedMoney=0
-	return "SD"
+	price:=18
+	change:=m.insertedMoney-price
+	return "SD" + m.change(change)
 }
 
 func (m *VendingMachine) SelectCC() string {
-	m.insertedMoney=0
-	return "CC"
+	price:=12
+	change:=m.insertedMoney-price
+	return "CC" + m.change(change)
+}
+
+func (m *VendingMachine) change(c int) string{
+	if c==0 {
+		return ""
+	}
+	return ", F, TW, O"
 }
 
 func main() {
@@ -37,11 +46,17 @@ func main() {
 	vm.InserCoin("O")
 	fmt.Println("Inserted Money:",vm.InsertedMoney()) //Inserted Money: 18
 	can := vm.SelectSD()
-	fmt.Println(can)
+	fmt.Println(can) //SD
 
 	vm.InserCoin("T")
 	vm.InserCoin("TW")
 	fmt.Println("Inserted Money:",vm.InsertedMoney()) //Inserted Money: 12
 	can = vm.SelectCC()
-	fmt.Println(can)
+	fmt.Println(can) //CC
+
+	vm.InserCoin("T")
+	vm.InserCoin("T")
+	fmt.Println("Inserted Money:",vm.InsertedMoney()) //Inserted Money: 20
+	can = vm.SelectCC()
+	fmt.Println(can) //CC, F, TW, 0
 }
