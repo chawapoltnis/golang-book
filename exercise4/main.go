@@ -21,6 +21,10 @@ func (m *VendingMachine) SelectSD() string {
 	return "SD"
 }
 
+func (m *VendingMachine) SelectCC() string {
+	return "CC"
+}
+
 func main() {
 	var coins = map[string]int{"T":10,"F":5,"TW":2,"O":1}
 	vm := VendingMachine{coins:coins}
@@ -29,7 +33,13 @@ func main() {
 	vm.InserCoin("F")
 	vm.InserCoin("TW")
 	vm.InserCoin("O")
-	fmt.Println("Inserted Money:",vm.InsertedMoney()) //Inserted Money: 10
+	fmt.Println("Inserted Money:",vm.InsertedMoney()) //Inserted Money: 18
 	can := vm.SelectSD()
+	fmt.Println(can)
+
+	vm.InserCoin("T")
+	vm.InserCoin("TW")
+	fmt.Println("Inserted Money:",vm.InsertedMoney()) //Inserted Money: 12
+	can = vm.SelectCC()
 	fmt.Println(can)
 }
