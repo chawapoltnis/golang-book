@@ -83,3 +83,4 @@
 
 # exercise4
 * add vending machine workthrough with coach
+* modify to make new package and import package vendingmachine
