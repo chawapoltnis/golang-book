@@ -84,3 +84,7 @@
 # exercise4
 * add vending machine workthrough with coach
 * modify to make new package and import package vendingmachine
+
+# exercise5
+* add exercise5 code same as cyber-dojo exam3
+* add avatar exam3 in folder exercise
