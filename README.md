@@ -88,3 +88,28 @@
 # exercise5
 * add exercise5 code same as cyber-dojo exam3
 * add avatar exam3 in folder exercise
+
+# 5/3/2018
+# chapter12-1
+* first class function tutorial
+
+# chapter12-3
+* function return function
+
+# chapter12-4
+* fizzbuzz functional style
+
+# chapter13-1
+* goroutine
+
+# chapter13-3
+* GOMAXPROCS
+
+# chapter13-4
+* sync.WaitGroup
+
+# chapter13-5
+* runtime.Gosched
+
+# chapter13-6
+* atomic.AddInt64

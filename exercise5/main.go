@@ -32,24 +32,30 @@ func li(is ...int) string {
             ml = len(p.s)
         }
     }
-    for _, p := range ps {
-        p.rs = strings.Repeat(p.s, (ml+len(p.s)-1)/len(p.s))
+    for q, p := range ps {
+		p.rs = strings.Repeat(p.s, (ml+len(p.s)-1)/len(p.s))
+		fmt.Printf("%v,%v,%v\n",q,p.s,p.rs)
     }
-    sort.Sort(ps)
-    s := make([]string, len(ps))
-    for i, p := range ps {
-        s[i] = p.s
-	}
+	sort.Sort(ps)
+	
+	//s := make([]string, len(ps))
 	var b string
-	for i:=0;i<len(s);i++ {
-		b+=s[i]
+    for _, p := range ps {
+		//s[i] = p.s
+		b+= p.s
 	}
+	//var b string
+	//for i:=0;i<len(s);i++ {
+	//	b+=s[i]
+	//}
     
     return b
 }
 
 func main() {
-    fmt.Println(li(1, 34, 3, 98, 9, 76, 45, 4))
-	fmt.Println(li(54, 546, 548, 60))
-	fmt.Printf("Type:%T",li(54, 546, 548, 60))
+	fmt.Println("1, 34, 3, 98, 9, 76, 45, 4")
+	fmt.Println(li(1, 34, 3, 98, 9, 76, 45, 4))
+	//fmt.Println("54, 546, 548, 60")
+	//fmt.Println(li(54, 546, 548, 60))
+	fmt.Println("546">"5454")
 }
