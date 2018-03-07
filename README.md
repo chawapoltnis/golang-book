@@ -113,3 +113,40 @@
 
 # chapter13-6
 * atomic.AddInt64
+
+# 7/3/2018
+# chapter13-7
+* sync.Mutex
+
+# chapter13-8
+* deadlock
+
+# chapter13-9
+* Channel
+
+# chapter13-10
+* Channel deadlock
+
+# chapter13-11
+* Buffered Channel and overfilled
+
+# chapter13-13
+* Goroutine Leak
+
+# chapter13-14
+* Channel-Direction
+
+# chapter13-15
+* Channel-Direction with close
+
+# chapter13-16
+* Channel-Select
+
+# chapter13-17
+* Pipeline 1 infinite loop -> Pipeline 2 use close channel
+
+# chapter13-19
+* Pipeline 3
+
+# chapter13-20
+* Select Timeout
