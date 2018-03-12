@@ -38,15 +38,17 @@ func order(volumn int) (container []string) {
 func order(volumn int) (container []string) {
 
 	cashier := make(chan string)
-	barista1 := make(chan string)
-	barista2 := make(chan string)
+	barista := make(chan string,2)
 	waiter := make(chan string)
 
 		//cashier receive order
 	go docashier(volumn,cashier)
-	go dobarista1(waiter,cashier,barista1)
-	go dobarista2(waiter,cashier,barista2)
-	//go dowaiter(waiter,barista1,barista2)
+
+	maxbarista :=2
+	for i:=1;i<=maxbarista;i++ {
+		go dobarista(cashier,barista)
+	}
+	go dowaiter(barista,waiter)
 
 	for x := range waiter {
 		container = append(container, x)
@@ -55,33 +57,26 @@ func order(volumn int) (container []string) {
 	return
 }
 
-func docashier(vol int,in chan<- string) {
+func docashier(vol int,out chan<- string) {
 	for x:=1;x<=vol;x++{
 		time.Sleep(5*time.Microsecond)
-		in<- fmt.Sprintf("order: %d", x)
-	}
-	close(in)
-}
-
-func dobarista1(out2 chan<- string,in <-chan string, out chan string) {
-	for x := range in {
-		time.Sleep(100*time.Millisecond)
-		out<- fmt.Sprintf("%s %s",x, "espresso")
-		dowaiter(out2,<-out)
+		out<- fmt.Sprintf("order: %d", x)
 	}
 	close(out)
 }
 
-func dobarista2(out2 chan<- string,in <-chan string, out chan string) {
-	for x := range in {
+func dobarista(in <-chan string, out chan<- string) {
+	for {
+		x := <-in
 		time.Sleep(100*time.Millisecond)
-		out<- fmt.Sprintf("%s %s",x, "espresso")
-		dowaiter(out2,<-out)
+		out<- fmt.Sprintf("%s %s", x, "espresso")
 	}
-	close(out)
 }
 
-func dowaiter(out chan<- string,coffee string) {
-	time.Sleep(5*time.Millisecond)
-	out <- fmt.Sprintf("%s %s", coffee, "ready :)")
+func dowaiter(in <-chan string,out chan<- string) {
+	for x := range in {
+		time.Sleep(5*time.Millisecond)
+		out <- fmt.Sprintf("%s %s", x, "ready :)")
+	}
+	close(out)
 }
