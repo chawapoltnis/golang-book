@@ -1,12 +1,13 @@
 package main
 
 import (
+	"sync"
 	"fmt"
 	"time"
 )
 
 func main() {
-	volumn :=100
+	volumn :=2000
 	start := time.Now()
 
 	container := order(volumn)
@@ -38,16 +39,12 @@ func order(volumn int) (container []string) {
 func order(volumn int) (container []string) {
 
 	cashier := make(chan string)
-	barista := make(chan string,2)
+	barista := make(chan string)
 	waiter := make(chan string)
 
 		//cashier receive order
 	go docashier(volumn,cashier)
-
-	maxbarista :=2
-	for i:=1;i<=maxbarista;i++ {
-		go dobarista(cashier,barista)
-	}
+	go dobarista(cashier,barista)
 	go dowaiter(barista,waiter)
 
 	for x := range waiter {
@@ -66,11 +63,23 @@ func docashier(vol int,out chan<- string) {
 }
 
 func dobarista(in <-chan string, out chan<- string) {
-	for {
-		x := <-in
-		time.Sleep(100*time.Millisecond)
-		out<- fmt.Sprintf("%s %s", x, "espresso")
+	maxbarista:=20
+	var wg sync.WaitGroup
+
+	wg.Add(maxbarista)
+	for i:=1;i<=maxbarista;i++ {
+		go func(in2 <-chan string) {
+			for x := range in2 {
+				time.Sleep(100*time.Millisecond)
+				out<- fmt.Sprintf("%s %s", x, "espresso")
+			}
+			wg.Done()
+		}(in)
 	}
+	go func() {
+        wg.Wait()
+        close(out)
+    }()
 }
 
 func dowaiter(in <-chan string,out chan<- string) {
